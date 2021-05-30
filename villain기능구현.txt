@@ -1,0 +1,12 @@
+xr interaction toolkit -> xr management -> oculus x2
+
+controllers->vrrig-> cameraoffset(empty), playercamera(camera)를 xr rig에 하나씩 넣어주기, 
+tracking origin mode -> floor, player camera에 tracked pose driver(와드같이 생긴거)
+
+playerleft,right controller에 xrcontroller(device based), xr direct interactor, sphere collider(is trigger 
+on, radius 0.2), right/left controllerpresence의 customcontroller 컴포넌트에서 hand model => right/left hand model을 할당
+
+ 잡고싶은 물체에 xr interactable 추가
+
+Character Controller 는 Rigidbody 물리적 특성을 사용하지 않는 3인칭 또는 1인칭
+플레이어 이동 제어에 주로 사용됨!
