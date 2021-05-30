@@ -10,3 +10,5 @@ on, radius 0.2), right/left controllerpresence의 customcontroller 컴포넌트�
 
 Character Controller 는 Rigidbody 물리적 특성을 사용하지 않는 3인칭 또는 1인칭
 플레이어 이동 제어에 주로 사용됨!
+
+UI는 canvas, text넣고 menu ui작성한 뒤에 canvas에 넣고 할당해주면 됨
