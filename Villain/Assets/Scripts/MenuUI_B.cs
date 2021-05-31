@@ -6,13 +6,20 @@ public class MenuUI_B : MonoBehaviour
 {
     [SerializeField]
     private Button button;
-    [SerializeField]
-    private Text text;
+    //[SerializeField]
+    //private Text text;
+    public GameObject text;
     public GameObject switchUI;
+    //public void Camappear5Sec()
+    //{
+    //    playerCam.SetActive(true);
+    //    Destroy(cityview, 5f);
+    //}
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(text, 10f);
+        Invoke("disappear5Sec", 5f);
+        //Destroy(text, 15f);
         Invoke("appear10Sec", 10f);
     }
 
@@ -25,5 +32,10 @@ public class MenuUI_B : MonoBehaviour
     {
         switchUI.SetActive(true);
         Destroy(switchUI, 10f);
+    }
+    public void disappear5Sec()
+    {
+        text.SetActive(true);
+        Destroy(text, 5f);
     }
 }

@@ -102,19 +102,25 @@ public class CustomController_B : MonoBehaviour
         if (!availableDevice.isValid)
         {
             TryInitialize();
+
             //return;
+      
         }
-        if (renderController)
+        if(handInstance!=null)
         {
-            handInstance.SetActive(false);
-            controllerInstance.SetActive(true);
+            if (renderController)
+            {
+                handInstance.SetActive(false);
+                controllerInstance.SetActive(true);
+            }
+            else
+            {
+                handInstance.SetActive(true);
+                controllerInstance.SetActive(false);
+                UpdateHandAnimation();//핸드 애니메이션은 여기서만 수행
+            }
         }
-        else
-        {
-            handInstance.SetActive(true);
-            controllerInstance.SetActive(false);
-            UpdateHandAnimation();//핸드 애니메이션은 여기서만 수행
-        }
+       
     }
     void UpdateHandAnimation()
     {
