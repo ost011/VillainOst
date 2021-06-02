@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class MovementProvider_B : MonoBehaviour
 {
-    public float speed = 1.0f; // 이동속도
+    public float speed = 5.0f; // 이동속도
     public float gravityMultiplier = 1.0f; // 중력에 영향을 받는 경우를 처리
     public List<XRController> controllers = null;
     private CharacterController characterController = null; // VRRig의 캐릭터 컨트롤러

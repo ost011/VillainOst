@@ -9,5 +9,7 @@ EditorBuildSettings:
     path: Assets/03Villain/02Asset/Cartoon_City_Mega-Pack/scenes/City_scene_summer.unity
     guid: 42ae40064f906f149a05bd8f83a14364
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: efd8e5d1e8b9e6f4391525f82b8b17b6, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 536cf0368a24ab3428449714408607ce, type: 2}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: efd8e5d1e8b9e6f4391525f82b8b17b6,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 536cf0368a24ab3428449714408607ce,
+      type: 2}

@@ -2,6 +2,8 @@
 //using System.Collections.Generic;
 //using UnityEngine;
 //using UnityEngine.XR;
+//using UnityEngine.XR.Interaction.Toolkit.UI;
+
 //public class CustomController_B : MonoBehaviour
 //{
 //    public InputDeviceCharacteristics characteristics;
@@ -15,6 +17,8 @@
 //    private GameObject handInstance; // 핸드 인스턴스
 
 //    private Animator handModelAnimator;// 핸드 모델 애니메이션 변수
+//    public GameObject HandGun;
+
 //    // Start is called before the first frame update
 //    void Start()
 //    {
@@ -106,7 +110,7 @@
 //            //return;
 
 //        }
-//        if(handInstance!=null)
+//        if (handInstance != null)
 //        {
 //            if (renderController)
 //            {
@@ -118,6 +122,14 @@
 //                handInstance.SetActive(true);
 //                controllerInstance.SetActive(false);
 //                UpdateHandAnimation();//핸드 애니메이션은 여기서만 수행
+//            }
+//        }
+//        if (HandGun != null)
+//        {
+//            bool menuButtonValue;
+//            if(availableDevice.TryGetFeatureValue(CommonUsages.triggerButton, out menuButtonValue) && menuButtonValue)
+//            {
+//                HandGun.GetComponent<SimpleShoot_B>().Shoot();
 //            }
 //        }
 
@@ -171,7 +183,7 @@ using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public enum HandState { NONE = 0, RIGHT, LEFT };
 
-public class CustomController : MonoBehaviour
+public class CustomController_B : MonoBehaviour
 {
     public InputDeviceCharacteristics characteristics;
     [SerializeField]
@@ -219,10 +231,10 @@ public class CustomController : MonoBehaviour
                 currentControllerModel = controllerModels[1];
                 currentHand = HandState.LEFT;
             }
-            else if (availableDevice.name.Contains("Left"))
+            else if (availableDevice.name.Contains("Right"))//Left
             {
-                currentControllerModel = controllerModels[1];
-                currentHand = HandState.LEFT;
+                currentControllerModel = controllerModels[2];//[1]
+                currentHand = HandState.RIGHT;//LEFT
             }
             else
             {
@@ -270,9 +282,9 @@ public class CustomController : MonoBehaviour
             bool menuButtonValue;
             if (availableDevice.TryGetFeatureValue(CommonUsages.triggerButton, out menuButtonValue) && menuButtonValue)
             {
-                if (triggerButton == false && currentHand == HandGun.GetComponent<SimpleShoot>().currentGrab)
+                if (triggerButton == false && currentHand == HandGun.GetComponent<SimpleShoot_B>().currentGrab)
                 {
-                    HandGun.GetComponent<SimpleShoot>().Shoot();
+                    HandGun.GetComponent<SimpleShoot_B>().Shoot();
                     triggerButton = true;
                 }
             }

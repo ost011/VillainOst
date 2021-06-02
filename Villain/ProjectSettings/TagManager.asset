@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Door
+  - Shootable
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -12,13 +13,13 @@ TagManager:
   - 
   - Water
   - UI
+  - Monster
+  - 
+  - 
+  - Ground
+  - 
   - Cabinet
-  - Terrain
-  - Object
-  - 
-  - 
-  - 
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -39,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

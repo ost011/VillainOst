@@ -122,6 +122,7 @@ public class MonsterCtrl_C : MonoBehaviour
         if (hp <= 0)
         {
             MonsterDie();
+            //Destroy(gameObject);
         }
 
     }
@@ -136,11 +137,11 @@ public class MonsterCtrl_C : MonoBehaviour
         nvAgent.isStopped = true;
         //animator.SetTrigger("IsDie");
 
-        gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
-        foreach(Collider coll in gameObject.GetComponentsInChildren<SphereCollider>())
-        {
-            coll.enabled = false;
-        }
+        //gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
+        //foreach(Collider coll in gameObject.GetComponentsInChildren<SphereCollider>())
+        //{
+        //    coll.enabled = false;
+        //}
         Destroy(this.gameObject);
     }
 }
