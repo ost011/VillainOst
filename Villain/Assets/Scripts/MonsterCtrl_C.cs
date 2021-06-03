@@ -20,7 +20,7 @@ public class MonsterCtrl_C : MonoBehaviour
     public float attackDist = 2.0f;
     private bool isDie = false;
 
-    private int hp = 100;
+    public int hp = 100;
 
 
     // Start is called before the first frame update

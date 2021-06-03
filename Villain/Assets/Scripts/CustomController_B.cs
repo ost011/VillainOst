@@ -198,6 +198,7 @@ public class CustomController_B : MonoBehaviour
     private Animator handModelAnimator; // 핸드 모델 애니메이션 변수
 
     public GameObject HandGun;
+    public GameObject Grenade;
 
     bool triggerButton;
 

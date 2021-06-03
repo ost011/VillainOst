@@ -37,10 +37,10 @@ public class SimpleShoot_B : MonoBehaviour
     void Update()
     {
         //여차하면 주석
-        if (Input.GetButtonDown("Fire1"))
-        {
-            GetComponent<Animator>().SetTrigger("Fire");
-        }
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    GetComponent<Animator>().SetTrigger("Fire");
+        //}
     }
 
     public void grabGun()
