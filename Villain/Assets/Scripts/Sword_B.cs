@@ -12,6 +12,7 @@ public class Sword_B : MonoBehaviour
     void Start()
     {
         swordAudio = GetComponent<AudioSource>();
+        swordAudio.volume = 2.0f;
     }
     private void OnTriggerEnter(Collider other)
     {

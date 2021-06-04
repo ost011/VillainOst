@@ -91,18 +91,23 @@ public class Grenade_B : MonoBehaviour
 {
     public float delay = 2f;
     public GameObject explosionEffect;
-
+    [SerializeField]
+    AudioSource explosionSound;
     public float radius = 20f;
     public float force = 1000f;
     public float maxDamage = 200f;
     public bool isGrab = false;
     float countdown;
     bool hasExploded = false;
-
-    //public HandState currentGrab;
+    Rigidbody rg;
+    Vector3 initpos;
+    public HandState currentGrab;
     void Start()
     {
+
+        rg = GetComponent<Rigidbody>();
         countdown = delay;
+         //  rg.velocity = Vector3.up * 10f;
         //currentGrab = HandState.NONE;
     }
     void Update()
@@ -129,11 +134,23 @@ public class Grenade_B : MonoBehaviour
         //}
 
     }
+    public void CatchObject()
+    {
+        initpos = this.transform.position;
+    }
+    public void throwObject()
+    {
+        Vector3 dir = this.transform.position - initpos;
+        Rigidbody rg = this.GetComponent<Rigidbody>();
+        rg.velocity=dir* 30000f;
+        Debug.Log("bomb");
+        
+    }
     public void Explode()
     {
         //show effect
         GameObject temp = Instantiate(explosionEffect, transform.position, transform.rotation);
-        //explosionSound.Play();
+        explosionSound.Play();
         //Get nearby objects
         Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, radius);
 
@@ -220,12 +237,11 @@ public class Grenade_B : MonoBehaviour
             //    }
             //}
         }
+        Debug.Log(collision.collider.name);
     }
-    //{
-    //if (collision.collider.name.Contains("Controller"))
-    //{
-    //    Invoke("Explode", 3f);
-    //}
 
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+    }
 }
