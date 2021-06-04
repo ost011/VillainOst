@@ -89,10 +89,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Grenade_B : MonoBehaviour
 {
-    public float delay = 3f;
+    public float delay = 2f;
     public GameObject explosionEffect;
 
-    public float radius = 10f;
+    public float radius = 20f;
     public float force = 1000f;
     public float maxDamage = 200f;
     public bool isGrab = false;
@@ -108,10 +108,14 @@ public class Grenade_B : MonoBehaviour
     void Update()
     {
         countdown -= Time.deltaTime;
-
-        float x = GetComponent<Rigidbody>().velocity.x;
-        float y = GetComponent<Rigidbody>().velocity.y;
-        float z = GetComponent<Rigidbody>().velocity.z;
+        //if(countdown<=0 && !hasExploded)
+        //{
+        //    Explode();
+        //    hasExploded = true;
+        //}
+        //float x = GetComponent<Rigidbody>().velocity.x;
+        //float y = GetComponent<Rigidbody>().velocity.y;
+        //float z = GetComponent<Rigidbody>().velocity.z;
         //Debug.Log($"x: {x}, y:{y}, z:{z}");
         //if (Mathf.Abs(x)+ Mathf.Abs(z) > 50f )
         //{
@@ -140,7 +144,7 @@ public class Grenade_B : MonoBehaviour
             if (rb != null)
             {
                 //Add force
-                rb.AddExplosionForce(force, transform.position, radius);
+                //rb.AddExplosionForce(force, transform.position, radius);
                 if (nearbyObject.tag == "Monster")
                 {
                     MonsterCtrl_C targetMonster = nearbyObject.GetComponent<MonsterCtrl_C>();
@@ -162,7 +166,7 @@ public class Grenade_B : MonoBehaviour
             if (rb != null)
             {
                 //Add force
-                rb.AddExplosionForce(force, transform.position, radius);
+                //rb.AddExplosionForce(force, transform.position, radius);
             }
         }
 
@@ -189,22 +193,34 @@ public class Grenade_B : MonoBehaviour
     //        Invoke("Explode", 1.5f);
     //    }
     //}
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("123");
-        if (other.gameObject.name.Contains("Hand"))
-        {
-            Debug.Log("hand123");
-            Invoke("Explode", 2f);
-        }
-    }
-    //private void OnTriggerEnter(Collider other)
+    //private void OnTriggerExit(Collider other)
     //{
-    //    if (!other.gameObject.name.Contains("Controller") && !other.gameObject.name.Contains("Cabinet"))
+    //    Debug.Log("123");
+    //    //손에서 빠져나가면 2초 뒤에 폭발
+    //    if (other.gameObject.name.Contains("Hand"))
     //    {
-    //        Invoke("Explode", 1.5f);
+    //        Debug.Log("hand123");
+    //        Invoke("Explode", delay);
     //    }
     //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.Contains("Under"))
+        {
+            Invoke("Explode", 2f);
+            //while (i < objList.Length)
+            //{
+            //    //캐비넷이 손에 닿을때마다 캐비넷 자식인 무기들을 활성화?
+            //    if (other.gameObject.name.Contains("Hand"))
+            //    {
+            //        objList[i].gameObject.SetActive(true);
+            //        //GameObject child = transform.GetChild(i).gameObject;
+            //        //child.SetActive(true);
+            //        i++;
+            //    }
+            //}
+        }
+    }
     //{
     //if (collision.collider.name.Contains("Controller"))
     //{

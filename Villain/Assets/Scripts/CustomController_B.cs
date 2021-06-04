@@ -201,9 +201,12 @@ public class CustomController_B : MonoBehaviour
     public GameObject Grenade;
 
     bool triggerButton;
-
+    bool gripButton;
 
     public HandState currentHand;
+
+    Vector3 prevPos;//이전 위치
+    float throwPower = 10f;//던질 힘
 
 
     // Start is called before the first frame update

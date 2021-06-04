@@ -22,6 +22,15 @@ public class MonsterCtrl_C : MonoBehaviour
 
     public int hp = 100;
 
+    public AudioClip gothitSound;
+    AudioSource swordAudio;
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Sword")
+        {
+            swordAudio.PlayOneShot(gothitSound);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +45,7 @@ public class MonsterCtrl_C : MonoBehaviour
 
         //StartCoroutine(this.CheckMonsterState());
         //StartCoroutine(this.MonsterAction());
-
+        swordAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

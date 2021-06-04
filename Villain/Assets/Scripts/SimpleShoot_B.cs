@@ -23,7 +23,8 @@ public class SimpleShoot_B : MonoBehaviour
 
     public HandState currentGrab;
 
-
+    [SerializeField]
+    GameObject guncab;
 
     void Start()
     {
@@ -33,7 +34,13 @@ public class SimpleShoot_B : MonoBehaviour
         fireAudio = GetComponent<AudioSource>();
         currentGrab = HandState.NONE;
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.Contains("Under"))
+        {
+            Debug.Log("Gun has fallen!");
+        }
+    }
     void Update()
     {
         //여차하면 주석

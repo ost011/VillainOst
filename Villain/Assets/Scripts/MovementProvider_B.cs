@@ -13,6 +13,9 @@ public class MovementProvider_B : MonoBehaviour
     private GameObject head = null; //카메라의 헤드 위치
 
     
+
+    
+
     private void Awake()
     {
         //캐릭터 컨트롤러 할당 및 카메라 위치 설정

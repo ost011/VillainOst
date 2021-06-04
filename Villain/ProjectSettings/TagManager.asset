@@ -7,6 +7,9 @@ TagManager:
   - Shootable
   - Monster
   - explosionmaker
+  - Sword
+  - Pistol
+  - Grenade
   layers:
   - Default
   - TransparentFX
