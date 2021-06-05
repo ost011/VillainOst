@@ -5,14 +5,15 @@ using UnityEngine;
 public class Sword_B : MonoBehaviour
 {
     public float attackAmount = 50f;
-    public AudioClip swordClip;
+    public AudioClip swordHit;
+    public AudioClip swordSwing;
     AudioSource swordAudio;
 
     // Start is called before the first frame update
     void Start()
     {
         swordAudio = GetComponent<AudioSource>();
-        swordAudio.volume = 2.0f;
+        swordAudio.volume = 3.0f;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +24,7 @@ public class Sword_B : MonoBehaviour
             {
                 mst.GetDamage(attackAmount);
             }
-            swordAudio.PlayOneShot(swordClip);
+            swordAudio.PlayOneShot(swordHit);
         }
         //else if (other.tag)
         //{
@@ -33,6 +34,14 @@ public class Sword_B : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float x = GetComponent<Rigidbody>().velocity.x;
+        float y = GetComponent<Rigidbody>().velocity.y;
+        float z = GetComponent<Rigidbody>().velocity.z;
+        if (Mathf.Abs(x) + Mathf.Abs(y) + Mathf.Abs(z) > 0.3f)
+        {
+            swordAudio.PlayOneShot(swordSwing);
+            Debug.Log("swing!");
+        }
         
     }
 }

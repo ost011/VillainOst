@@ -694,7 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAmount: 50
-  swordClip: {fileID: 8300000, guid: 019b3d4dd7bcaff41a8828818e543aa5, type: 3}
+  swordHit: {fileID: 0}
+  swordSwing: {fileID: 0}
 --- !u!82 &3680761486685279113
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2312,7 +2313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0280b339535e8764b9309dad8f9eccb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swdcab: {fileID: 3680761488067469212}
+  cab: {fileID: 0}
 --- !u!1 &3680761487976275568
 GameObject:
   m_ObjectHideFlags: 0

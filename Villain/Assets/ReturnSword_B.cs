@@ -5,7 +5,8 @@ using UnityEngine;
 public class ReturnSword_B : MonoBehaviour
 {
     [SerializeField]
-    GameObject swdcab;
+    GameObject cab;
+    private Transform tr;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +16,15 @@ public class ReturnSword_B : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //tr = cab.GetComponent<Transform>();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name.Contains("Under"))
+        if (other.gameObject.name.Contains("Under"))
         {
             Debug.Log("Sword has fallen!");
+            tr = cab.GetComponent<Transform>();
+            this.gameObject.transform.position = tr.transform.position;
         }
     }
 }

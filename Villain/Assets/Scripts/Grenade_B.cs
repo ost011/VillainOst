@@ -143,14 +143,14 @@ public class Grenade_B : MonoBehaviour
         Vector3 dir = this.transform.position - initpos;
         Rigidbody rg = this.GetComponent<Rigidbody>();
         rg.velocity=dir* 30000f;
-        Debug.Log("bomb");
+        //Debug.Log("bomb");
         
     }
     public void Explode()
     {
         //show effect
         GameObject temp = Instantiate(explosionEffect, transform.position, transform.rotation);
-        explosionSound.Play();
+        //explosionSound.Play();
         //Get nearby objects
         Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, radius);
 
@@ -237,11 +237,11 @@ public class Grenade_B : MonoBehaviour
             //    }
             //}
         }
-        Debug.Log(collision.collider.name);
+        //Debug.Log(collision.collider.name);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.name);
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+        //Debug.Log(other.name);
+    //}
 }
