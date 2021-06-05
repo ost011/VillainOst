@@ -23,8 +23,6 @@ public class SimpleShoot_B : MonoBehaviour
 
     public HandState currentGrab;
 
-    [SerializeField]
-    GameObject guncab;
 
     void Start()
     {

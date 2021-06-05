@@ -87,7 +87,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Grenade_B : MonoBehaviour
+public class Grenade_B :  MonoBehaviour
 {
     public float delay = 2f;
     public GameObject explosionEffect;
@@ -98,13 +98,15 @@ public class Grenade_B : MonoBehaviour
     public float maxDamage = 200f;
     public bool isGrab = false;
     float countdown;
-    bool hasExploded = false;
+    //bool hasExploded = false;
     Rigidbody rg;
     Vector3 initpos;
     public HandState currentGrab;
+    public AudioClip Swing;
+    AudioSource swingAudio;
     void Start()
     {
-
+        swingAudio = GetComponent<AudioSource>();
         rg = GetComponent<Rigidbody>();
         countdown = delay;
          //  rg.velocity = Vector3.up * 10f;
@@ -140,11 +142,14 @@ public class Grenade_B : MonoBehaviour
     }
     public void throwObject()
     {
-        Vector3 dir = this.transform.position - initpos;
-        Rigidbody rg = this.GetComponent<Rigidbody>();
-        rg.velocity=dir* 30000f;
+        //Vector3 dir = this.transform.position - initpos;
+        //Rigidbody rg = this.GetComponent<Rigidbody>();
+        //rg.velocity=dir* 30000f;
         //Debug.Log("bomb");
-        
+        //if (Swing != null)
+        //{
+        //    swingAudio.PlayOneShot(Swing);
+        //}
     }
     public void Explode()
     {

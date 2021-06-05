@@ -22,7 +22,7 @@ public class ReturnSword_B : MonoBehaviour
     {
         if (other.gameObject.name.Contains("Under"))
         {
-            Debug.Log("Sword has fallen!");
+            //Debug.Log("Sword has fallen!");
             tr = cab.GetComponent<Transform>();
             this.gameObject.transform.position = tr.transform.position;
         }
