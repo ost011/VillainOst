@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Sword_B : MonoBehaviour
 {
-    public float attackAmount = 50f;
+    public float attackAmount = 25f;
     public AudioClip swordHit;
     public AudioClip swordSwing;
     AudioSource swordAudio;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         swordAudio = GetComponent<AudioSource>();
-        swordAudio.volume = 3.0f;
+        swordAudio.volume = 10.0f;
+        
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -28,7 +28,7 @@ public class MonsterCtrl_C : MonoBehaviour
     {
         if(other.tag == "Sword")
         {
-            swordAudio.PlayOneShot(gothitSound);
+            //swordAudio.PlayOneShot(gothitSound);
         }
     }
 

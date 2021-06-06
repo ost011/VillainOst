@@ -13,7 +13,7 @@ public class Cabinet_B : MonoBehaviour
 
     private bool getGrenade = false;
     private int i = 0;
-   private int size = 3;
+   private int size = 5;
     //private int grenadenum=3;
 //    // Start is called before the first frame update
     void Start()

@@ -161,16 +161,17 @@ public class Grenade_B :  MonoBehaviour
         //var mp = movementProvider.GetComponent<MovementProvider_B>();
         //Swing = mp.swing;
         var cb = GameObject.Find("PlayerRightControllerHand_B (1)").GetComponent<AudioSource>();
-        cb.Play();
+        //cb.Play();
+        cb.volume = 2f;
         var gn = GameObject.FindWithTag("Grenade_B");
-        //if (this.gameObject.GetComponent<TrailRenderer>() != null && GetComponent<CapsuleCollider>()!=null)
-        //{
-        //    this.gameObject.GetComponent<TrailRenderer>().enabled = true;
-        //    cb.GetComponent<AudioSource>().Play();
-        //}
+        if (cb!=null)
+        {
+            //this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+            cb.Play();
+        }
 
         //cb.GetComponent<AudioSource>().Play();
-        
+
     }
     public void Explode()
     {
