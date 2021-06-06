@@ -47,6 +47,7 @@ public class Cabinet_B : MonoBehaviour
             XRGrabInteractable r;
             r = Instantiate(grenadePrefabs, this.transform.position, this.transform.rotation).GetComponent<XRGrabInteractable>();
             sci.startingSelectedInteractable = r;
+            Debug.Log(size);
             size--;
         }
         //XRGrabInteractable r;
