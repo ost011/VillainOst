@@ -10,6 +10,7 @@ TagManager:
   - Sword
   - Pistol
   - Grenade
+  - Grenade_B
   layers:
   - Default
   - TransparentFX

@@ -91,10 +91,12 @@ public class Grenade_B :  MonoBehaviour
 {
     public float delay = 2f;
     public GameObject explosionEffect;
+    public AudioClip Swing;
     [SerializeField]
     AudioSource explosionSound;
-    public float radius = 20f;
-    public float force = 1000f;
+    AudioSource swingAudio;
+    public float radius = 30f;
+    public float force = 10000f;
     public float maxDamage = 200f;
     public bool isGrab = false;
     float countdown;
@@ -102,10 +104,14 @@ public class Grenade_B :  MonoBehaviour
     Rigidbody rg;
     Vector3 initpos;
     public HandState currentGrab;
-    public AudioClip Swing;
-    AudioSource swingAudio;
+
+    public bool hasThrown;
+
+    public float x, y, z;
+    //public GameObject movementProvider;
     void Start()
     {
+        hasThrown = false;
         swingAudio = GetComponent<AudioSource>();
         rg = GetComponent<Rigidbody>();
         countdown = delay;
@@ -120,9 +126,9 @@ public class Grenade_B :  MonoBehaviour
         //    Explode();
         //    hasExploded = true;
         //}
-        //float x = GetComponent<Rigidbody>().velocity.x;
-        //float y = GetComponent<Rigidbody>().velocity.y;
-        //float z = GetComponent<Rigidbody>().velocity.z;
+        x = GetComponent<Rigidbody>().velocity.x;
+        y = GetComponent<Rigidbody>().velocity.y;
+        z = GetComponent<Rigidbody>().velocity.z;
         //Debug.Log($"x: {x}, y:{y}, z:{z}");
         //if (Mathf.Abs(x)+ Mathf.Abs(z) > 50f )
         //{
@@ -138,18 +144,33 @@ public class Grenade_B :  MonoBehaviour
     }
     public void CatchObject()
     {
-        initpos = this.transform.position;
+        Debug.Log("grabbed!");
+        if (this.gameObject.GetComponent<TrailRenderer>().enabled == true)
+        {
+            this.gameObject.GetComponent<TrailRenderer>().enabled = false;
+        }
     }
+    
+
     public void throwObject()
     {
         //Vector3 dir = this.transform.position - initpos;
         //Rigidbody rg = this.GetComponent<Rigidbody>();
         //rg.velocity=dir* 30000f;
         //Debug.Log("bomb");
-        //if (Swing != null)
-        //{
-        //    swingAudio.PlayOneShot(Swing);
-        //}
+        //var mp = movementProvider.GetComponent<MovementProvider_B>();
+        //Swing = mp.swing;
+        var cb = GameObject.Find("PlayerRightControllerHand_B (1)").GetComponent<AudioSource>();
+        cb.Play();
+        var gn = GameObject.FindWithTag("Grenade_B");
+        if (this.gameObject.GetComponent<TrailRenderer>() != null && GetComponent<CapsuleCollider>()!=null)
+        {
+            this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+            //cb.GetComponent<AudioSource>().Play();
+        }
+
+        //cb.GetComponent<AudioSource>().Play();
+        
     }
     public void Explode()
     {
@@ -166,7 +187,7 @@ public class Grenade_B :  MonoBehaviour
             if (rb != null)
             {
                 //Add force
-                //rb.AddExplosionForce(force, transform.position, radius);
+                rb.AddExplosionForce(force, transform.position, radius);
                 if (nearbyObject.tag == "Monster")
                 {
                     MonsterCtrl_C targetMonster = nearbyObject.GetComponent<MonsterCtrl_C>();
@@ -181,16 +202,16 @@ public class Grenade_B :  MonoBehaviour
                 dest.Destroyy();
             }
         }
-        Collider[] collidersToMove = Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider nearbyObject in collidersToMove)
-        {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                //Add force
-                //rb.AddExplosionForce(force, transform.position, radius);
-            }
-        }
+        //Collider[] collidersToMove = Physics.OverlapSphere(transform.position, radius);
+        //foreach (Collider nearbyObject in collidersToMove)
+        //{
+        //    Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+        //    if (rb != null)
+        //    {
+        //        //Add force
+        //        rb.AddExplosionForce(force, transform.position, radius);
+        //    }
+        //}
 
         //remove grenade
         Destroy(this.gameObject);
@@ -230,17 +251,6 @@ public class Grenade_B :  MonoBehaviour
         if (collision.gameObject.name.Contains("Under"))
         {
             Invoke("Explode", 2f);
-            //while (i < objList.Length)
-            //{
-            //    //캐비넷이 손에 닿을때마다 캐비넷 자식인 무기들을 활성화?
-            //    if (other.gameObject.name.Contains("Hand"))
-            //    {
-            //        objList[i].gameObject.SetActive(true);
-            //        //GameObject child = transform.GetChild(i).gameObject;
-            //        //child.SetActive(true);
-            //        i++;
-            //    }
-            //}
         }
         //Debug.Log(collision.collider.name);
     }

@@ -18,7 +18,7 @@ public class Cabinet_B : MonoBehaviour
 //    // Start is called before the first frame update
     void Start()
     {
-        size = 3;
+        //size = 3;
         //for (int i = 0; i < 3; i++)
         //{
         //    objlist.add (instantiate(grenadeprefabs, this.transform.position, this.transform.rotation));
@@ -108,17 +108,17 @@ public class Cabinet_B : MonoBehaviour
     //    }
     //}
     //}
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name.Contains("Hand"))
-        {
-            if (transform.GetChild(1) == null && i < 3)
-            {
-                Instantiate(grenadePrefabs, this.transform.position, this.transform.rotation);
-                Debug.Log($"{i}");
-                i++;
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.name.Contains("Hand"))
+    //    {
+    //        if (transform.GetChild(1) == null && i < 3)
+    //        {
+    //            Instantiate(grenadePrefabs, this.transform.position, this.transform.rotation);
+    //            Debug.Log($"{i}");
+    //            i++;
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 }

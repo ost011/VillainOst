@@ -11,8 +11,8 @@ public class MovementProvider_B : MonoBehaviour
     public List<XRController> controllers = null;
     private CharacterController characterController = null; // VRRig의 캐릭터 컨트롤러
     private GameObject head = null; //카메라의 헤드 위치
-
-    
+    //public AudioClip swing;
+    //AudioSource swingaudioSource;
 
     
 
@@ -21,12 +21,15 @@ public class MovementProvider_B : MonoBehaviour
         //캐릭터 컨트롤러 할당 및 카메라 위치 설정
         characterController = GetComponent<CharacterController>();
         head = GetComponent<XRRig>().cameraGameObject;
+
     }
     // Start is called before the first frame update
     void Start()
-    {
+    {        
+        //swingaudioSource = GetComponent<AudioSource>();
         //초기 설정을 처리
         PositionController();
+
     }
 
     // Update is called once per frame
