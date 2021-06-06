@@ -163,11 +163,11 @@ public class Grenade_B :  MonoBehaviour
         var cb = GameObject.Find("PlayerRightControllerHand_B (1)").GetComponent<AudioSource>();
         cb.Play();
         var gn = GameObject.FindWithTag("Grenade_B");
-        if (this.gameObject.GetComponent<TrailRenderer>() != null && GetComponent<CapsuleCollider>()!=null)
-        {
-            this.gameObject.GetComponent<TrailRenderer>().enabled = true;
-            //cb.GetComponent<AudioSource>().Play();
-        }
+        //if (this.gameObject.GetComponent<TrailRenderer>() != null && GetComponent<CapsuleCollider>()!=null)
+        //{
+        //    this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+        //    cb.GetComponent<AudioSource>().Play();
+        //}
 
         //cb.GetComponent<AudioSource>().Play();
         
