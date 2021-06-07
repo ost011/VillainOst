@@ -32,17 +32,34 @@ public class Sword_B : MonoBehaviour
         //    if()
         //}
     }
+    public void swordgrabbed()
+    {
+        Debug.Log("sword grabbed");
+        if (GameObject.Find("SwordTrail_B").GetComponent<TrailRenderer>().enabled == false)
+        {
+            GameObject.Find("SwordTrail_B").GetComponent<TrailRenderer>().enabled = true;
+        }
+    }
+    public void dropsword()
+    {
+        Debug.Log("sword dropped");
+        if (GameObject.Find("SwordTrail_B").GetComponent<TrailRenderer>().enabled == true)
+        {
+            GameObject.Find("SwordTrail_B").GetComponent<TrailRenderer>().enabled = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        float x = GetComponent<Rigidbody>().velocity.x;
-        float y = GetComponent<Rigidbody>().velocity.y;
-        float z = GetComponent<Rigidbody>().velocity.z;
-        if (Mathf.Abs(x) + Mathf.Abs(y) + Mathf.Abs(z) > 0.3f)
-        {
-            swordAudio.PlayOneShot(swordSwing);
-            Debug.Log("swing!");
-        }
+        //float x = GetComponent<Rigidbody>().velocity.x;
+        //float y = GetComponent<Rigidbody>().velocity.y;
+        //float z = GetComponent<Rigidbody>().velocity.z;
+        //if (Mathf.Abs(x) + Mathf.Abs(y) + Mathf.Abs(z) > 0.3f)
+        //{
+        //    swordAudio.PlayOneShot(swordSwing);
+        //    Debug.Log("swing!");
+        //}
         
     }
 }

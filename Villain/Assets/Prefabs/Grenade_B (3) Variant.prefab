@@ -279,10 +279,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3081168427169619054}
+        m_TargetAssemblyTypeName: Grenade_B, Assembly-CSharp
+        m_MethodName: CatchObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3081168427169619054}
+        m_TargetAssemblyTypeName: Grenade_B, Assembly-CSharp
+        m_MethodName: throwObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -373,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 264052829471926746, guid: b411703b37d10554884fdbf4a224a672,
         type: 3}
       propertyPath: force
-      value: 10000
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 264052829471926746, guid: b411703b37d10554884fdbf4a224a672,
         type: 3}
@@ -652,3 +676,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2983802953246471604}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3081168427169619054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 264052829471926746, guid: b411703b37d10554884fdbf4a224a672,
+    type: 3}
+  m_PrefabInstance: {fileID: 2983802953246471604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282670584840442980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82d4e5e64242b242a26fc63a8bc98ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -95,8 +95,8 @@ public class Grenade_B :  MonoBehaviour
     [SerializeField]
     AudioSource explosionSound;
     AudioSource swingAudio;
-    public float radius = 30f;
-    public float force = 10000f;
+    public float radius = 20f;
+    public float force = 700f;
     public float maxDamage = 200f;
     public bool isGrab = false;
     float countdown;
@@ -120,15 +120,15 @@ public class Grenade_B :  MonoBehaviour
     }
     void Update()
     {
-        countdown -= Time.deltaTime;
+        //countdown -= Time.deltaTime;
         //if(countdown<=0 && !hasExploded)
         //{
         //    Explode();
         //    hasExploded = true;
         //}
-        x = GetComponent<Rigidbody>().velocity.x;
-        y = GetComponent<Rigidbody>().velocity.y;
-        z = GetComponent<Rigidbody>().velocity.z;
+        //x = GetComponent<Rigidbody>().velocity.x;
+        //y = GetComponent<Rigidbody>().velocity.y;
+        //z = GetComponent<Rigidbody>().velocity.z;
         //Debug.Log($"x: {x}, y:{y}, z:{z}");
         //if (Mathf.Abs(x)+ Mathf.Abs(z) > 50f )
         //{
